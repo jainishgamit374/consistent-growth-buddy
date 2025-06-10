@@ -1,12 +1,16 @@
 
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Calendar, Target, TrendingUp, Settings, User, Bell, Star } from 'lucide-react';
+import { Calendar, Target, TrendingUp, Settings, User, Bell, Star, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import AuthModal from './AuthModal';
 import PaymentPlansModal from './PaymentPlansModal';
 
-const Sidebar: React.FC = () => {
+interface SidebarProps {
+  onClose?: () => void;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ onClose }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -17,8 +21,26 @@ const Sidebar: React.FC = () => {
     { path: '/settings', icon: Settings, label: 'Settings', color: 'from-gray-500 to-gray-600' }
   ];
 
+  const handleNavigation = (path: string) => {
+    navigate(path);
+    if (onClose) onClose();
+  };
+
   return (
-    <div className="w-72 glass-card border-r border-white/10 flex flex-col shadow-xl">
+    <div className="w-72 h-screen glass-card border-r border-white/10 flex flex-col shadow-xl">
+      {/* Close button for mobile */}
+      <div className="flex justify-between items-center p-4 lg:hidden">
+        <div></div>
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={onClose}
+          className="text-white/70 hover:text-white"
+        >
+          <X className="w-5 h-5" />
+        </Button>
+      </div>
+
       {/* Logo Section */}
       <div className="p-6 border-b border-white/10">
         <div className="flex items-center space-x-3">
@@ -53,14 +75,14 @@ const Sidebar: React.FC = () => {
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 p-4">
+      <nav className="flex-1 p-4 overflow-y-auto">
         <div className="space-y-2">
           {navItems.map(({ path, icon: Icon, label, color }) => {
             const isActive = location.pathname === path;
             return (
               <button
                 key={path}
-                onClick={() => navigate(path)}
+                onClick={() => handleNavigation(path)}
                 className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 group ${
                   isActive 
                     ? 'glass text-white shadow-lg border border-white/20' 
