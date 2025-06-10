@@ -33,7 +33,7 @@ const App = () => {
         <Toaster />
         <Sonner />
         <HabitProvider>
-          <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
+          <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
             <BrowserRouter>
               <div className="flex h-screen overflow-hidden">
                 {/* Sidebar */}
@@ -42,7 +42,7 @@ const App = () => {
                 {/* Main Content */}
                 <div className="flex-1 flex flex-col overflow-hidden">
                   <Header />
-                  <main className="flex-1 overflow-y-auto p-6 bg-gray-50/50">
+                  <main className="flex-1 overflow-y-auto p-6">
                     <div className="max-w-7xl mx-auto">
                       <Routes>
                         <Route path="/" element={<Dashboard />} />
