@@ -10,7 +10,8 @@ import Dashboard from "./components/Dashboard";
 import HabitsPage from "./components/HabitsPage";
 import ProgressPage from "./components/ProgressPage";
 import SettingsPage from "./components/SettingsPage";
-import Navigation from "./components/Navigation";
+import Sidebar from "./components/Sidebar";
+import Header from "./components/Header";
 import OnboardingFlow from "./components/OnboardingFlow";
 import { HabitProvider } from "./contexts/HabitContext";
 import React from 'react';
@@ -32,23 +33,29 @@ const App = () => {
         <Toaster />
         <Sonner />
         <HabitProvider>
-          <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50">
-            <div className="max-w-md mx-auto bg-white shadow-xl min-h-screen">
-              <BrowserRouter>
-                <div className="flex flex-col h-screen">
-                  <main className="flex-1 overflow-y-auto pb-20">
-                    <Routes>
-                      <Route path="/" element={<Dashboard />} />
-                      <Route path="/habits" element={<HabitsPage />} />
-                      <Route path="/progress" element={<ProgressPage />} />
-                      <Route path="/settings" element={<SettingsPage />} />
-                      <Route path="*" element={<NotFound />} />
-                    </Routes>
+          <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
+            <BrowserRouter>
+              <div className="flex h-screen overflow-hidden">
+                {/* Sidebar */}
+                <Sidebar />
+                
+                {/* Main Content */}
+                <div className="flex-1 flex flex-col overflow-hidden">
+                  <Header />
+                  <main className="flex-1 overflow-y-auto p-6 bg-gray-50/50">
+                    <div className="max-w-7xl mx-auto">
+                      <Routes>
+                        <Route path="/" element={<Dashboard />} />
+                        <Route path="/habits" element={<HabitsPage />} />
+                        <Route path="/progress" element={<ProgressPage />} />
+                        <Route path="/settings" element={<SettingsPage />} />
+                        <Route path="*" element={<NotFound />} />
+                      </Routes>
+                    </div>
                   </main>
-                  <Navigation />
                 </div>
-              </BrowserRouter>
-            </div>
+              </div>
+            </BrowserRouter>
           </div>
         </HabitProvider>
       </TooltipProvider>
