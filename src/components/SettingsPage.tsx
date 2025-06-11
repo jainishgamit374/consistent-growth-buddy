@@ -41,20 +41,20 @@ const SettingsPage: React.FC = () => {
   return (
     <div className="p-6 pb-24">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-800">Settings</h1>
-        <p className="text-gray-600">Customize your habit tracking experience</p>
+        <h1 className="text-2xl font-bold text-foreground">Settings</h1>
+        <p className="text-muted-foreground">Customize your habit tracking experience</p>
       </div>
 
       {/* Profile Section */}
-      <Card className="p-6 mb-6">
-        <h3 className="text-lg font-semibold text-gray-800 mb-4">Profile</h3>
+      <Card className="glass-card border-white/10 p-6 mb-6">
+        <h3 className="text-lg font-semibold text-foreground mb-4">Profile</h3>
         <div className="flex items-center space-x-4">
           <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center">
             <span className="text-2xl text-white">👤</span>
           </div>
           <div>
-            <div className="font-medium text-gray-800">Habit Tracker User</div>
-            <div className="text-sm text-gray-500">
+            <div className="font-medium text-foreground">Habit Tracker User</div>
+            <div className="text-sm text-muted-foreground">
               {habits.length} active habits • {completions.length} total completions
             </div>
           </div>
@@ -62,20 +62,20 @@ const SettingsPage: React.FC = () => {
       </Card>
 
       {/* Notifications */}
-      <Card className="p-6 mb-6">
-        <h3 className="text-lg font-semibold text-gray-800 mb-4">Notifications</h3>
+      <Card className="glass-card border-white/10 p-6 mb-6">
+        <h3 className="text-lg font-semibold text-foreground mb-4">Notifications</h3>
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <div className="font-medium text-gray-800">Daily Reminders</div>
-              <div className="text-sm text-gray-500">Get notified about your habits</div>
+              <div className="font-medium text-foreground">Daily Reminders</div>
+              <div className="text-sm text-muted-foreground">Get notified about your habits</div>
             </div>
             <Switch />
           </div>
           <div className="flex items-center justify-between">
             <div>
-              <div className="font-medium text-gray-800">Achievement Alerts</div>
-              <div className="text-sm text-gray-500">Celebrate your streaks and milestones</div>
+              <div className="font-medium text-foreground">Achievement Alerts</div>
+              <div className="text-sm text-muted-foreground">Celebrate your streaks and milestones</div>
             </div>
             <Switch />
           </div>
@@ -83,20 +83,20 @@ const SettingsPage: React.FC = () => {
       </Card>
 
       {/* Data Management */}
-      <Card className="p-6 mb-6">
-        <h3 className="text-lg font-semibold text-gray-800 mb-4">Data Management</h3>
+      <Card className="glass-card border-white/10 p-6 mb-6">
+        <h3 className="text-lg font-semibold text-foreground mb-4">Data Management</h3>
         <div className="space-y-3">
           <Button
             onClick={exportData}
             variant="outline"
-            className="w-full justify-start rounded-xl"
+            className="w-full justify-start rounded-xl glass border-white/20 hover:bg-white/10 text-foreground"
           >
             📁 Export Your Data
           </Button>
           <Button
             onClick={resetOnboarding}
             variant="outline"
-            className="w-full justify-start rounded-xl"
+            className="w-full justify-start rounded-xl glass border-white/20 hover:bg-white/10 text-foreground"
           >
             🔄 View Onboarding Again
           </Button>
@@ -104,9 +104,9 @@ const SettingsPage: React.FC = () => {
       </Card>
 
       {/* About */}
-      <Card className="p-6 mb-6">
-        <h3 className="text-lg font-semibold text-gray-800 mb-4">About</h3>
-        <div className="space-y-2 text-sm text-gray-600">
+      <Card className="glass-card border-white/10 p-6 mb-6">
+        <h3 className="text-lg font-semibold text-foreground mb-4">About</h3>
+        <div className="space-y-2 text-sm text-muted-foreground">
           <div>Version 1.0.0</div>
           <div>Built with ❤️ for better habits</div>
           <div>© 2024 HabitFlow</div>
@@ -114,8 +114,8 @@ const SettingsPage: React.FC = () => {
       </Card>
 
       {/* Danger Zone */}
-      <Card className="p-6 border-red-200">
-        <h3 className="text-lg font-semibold text-red-600 mb-4">Danger Zone</h3>
+      <Card className="glass-card border-red-400/30 p-6">
+        <h3 className="text-lg font-semibold text-red-400 mb-4">Danger Zone</h3>
         <Button
           onClick={clearAllData}
           variant="destructive"
@@ -123,7 +123,7 @@ const SettingsPage: React.FC = () => {
         >
           🗑️ Delete All Data
         </Button>
-        <p className="text-xs text-gray-500 mt-2 text-center">
+        <p className="text-xs text-muted-foreground mt-2 text-center">
           This will permanently delete all your habits and progress data
         </p>
       </Card>
