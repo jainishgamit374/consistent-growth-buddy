@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Plus, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -66,7 +67,7 @@ const Dashboard = () => {
   }, [habits, today]);
 
   return (
-    <div className="space-y-6 lg:space-y-8 overflow-y-auto scrollbar-hide">
+    <div className="space-y-6 lg:space-y-8">
       {/* Welcome Section */}
       <div className="glass-card rounded-2xl p-6 lg:p-8 border border-white/10">
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between space-y-4 lg:space-y-0">
